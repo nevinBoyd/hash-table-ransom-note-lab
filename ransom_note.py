@@ -10,4 +10,14 @@ def can_construct(ransomNote: str, magazine: str) -> bool:
     Returns:
         bool: True if ransomNote can be constructed, False otherwise.
     """
-    pass  # TODO: Implement this function
+# TODO: Implement this function 
+    counts ={}
+    for char in magazine:
+        counts[char] = counts.get(char, 0) + 1
+
+    for char in ransomNote:
+        if char not in counts or counts[char] == 0:
+            return False
+        counts[char] -=1
+
+    return True    
